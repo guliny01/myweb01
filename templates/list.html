@@ -1,0 +1,33 @@
+
+
+
+
+<!-- list.html -->
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+{% block title %} {{ post.title }} 中古手机列表 {% endblock %}
+{% block headmessage %}
+    <h3 style='font-family:微软雅黑;'>中古二手手机列表</h3>
+{% endblock %}
+{% block content %}
+        <p style='font-family:微软雅黑;font-size:12pt;letter-spacing:2pt;'>
+            <table class="table table-striped" border=1 >
+              <thead><th>品名</th><th>售价</th><th>库存量</th></thead>
+                <tbody>
+                {% for p in products %}
+                  <tr>
+                    <td>
+                      <a href='/list/{{p.sku}}/'>{{p.name}}</a>
+                    </td>
+                    <td>{{p.price}}</td>
+                    <td>{{p.qty}}</td>
+                   <tr>
+                  {% endfor %}
+           </tbody>
+           </table>
+           <hr>
+           <p>总的记录数{{total}}</p>
+           <a href = '/'>返回首页</a>
+        </p>
+{% endblock %}
+

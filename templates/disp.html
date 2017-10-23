@@ -1,0 +1,20 @@
+<!-- bisp.html -->
+
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+{% block title %} {{ post.title }} {{product.name}} {% endblock %}
+{% block headmessage %}
+    <h3 style='font-family:微软雅黑;'>{{product.name}}</h3>
+{% endblock %}
+{% block content %} 
+        <p style='font-family:微软雅黑;font-size:12pt;letter-spacing:2pt;'>
+            <table width=400 border=1 bgcolor='#ccffcc'>
+              <tr><td>产品编号</td><td>{{product.sku}}</td></tr>
+              <tr><td>产品名称</td><td>{{product.name}}</td></tr>
+              <tr><td>二手售价</td><td>{{product.price}}</td></tr>
+              <tr><td>库存数量</td><td>{{product.qty}}</td></tr>
+            </table>
+            <a href ='/list'>返回列表</a>
+        </p>
+{% endblock %}
+
